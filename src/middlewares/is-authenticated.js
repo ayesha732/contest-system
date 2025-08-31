@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
-    console.log("is-authenticated middleware running");
 
     const authHeader = ctx.request.header.authorization;
 
