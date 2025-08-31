@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leaderboards",
+  "info": {
+    "singularName": "leaderboard",
+    "pluralName": "leaderboards",
+    "displayName": "Leaderboard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "score": {
+      "type": "integer",
+      "required": true
+    },
+    "rank": {
+      "type": "integer"
+    },
+    "prizeAwarded": {
+      "type": "boolean",
+      "default": false
+    },
+    "prizeDetails": {
+      "type": "text"
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "leaderboards"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

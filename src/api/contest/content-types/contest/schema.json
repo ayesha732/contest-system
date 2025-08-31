@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contests",
+  "info": {
+    "singularName": "contest",
+    "pluralName": "contests",
+    "displayName": "Contest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "prize": {
+      "type": "string"
+    },
+    "prizeDetails": {
+      "type": "text"
+    },
+    "maxParticipants": {
+      "type": "integer",
+      "default": 0
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["upcoming", "ongoing", "completed", "cancelled"],
+      "default": "upcoming"
+    },
+    "accessLevel": {
+      "type": "enumeration",
+      "enum": ["VIP", "authenticated", "Admin"],
+      "default": "authenticated",
+      "required": true
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "contest"
+    },
+    "participations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-contest-participation.user-contest-participation",
+      "mappedBy": "contest"
+    },
+    "leaderboards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::leaderboard.leaderboard",
+      "mappedBy": "contest"
+    },
+    "prizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prize.prize",
+      "mappedBy": "contest"
+    }
+  }
+}

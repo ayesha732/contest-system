@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prizes",
+  "info": {
+    "singularName": "prize",
+    "pluralName": "prizes",
+    "displayName": "Prize"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "prizeDetails": {
+      "type": "text",
+      "required": true
+    },
+    "awardedAt": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "awarded", "claimed"],
+      "default": "awarded"
+    },
+     "rank": {
+      "type": "integer",
+      "required": false,
+      "description": "The rank this prize is intended for (1 = top scorer, 2 = 2nd place, etc.)"
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "prizes"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_contest_participations",
+  "info": {
+    "singularName": "user-contest-participation",
+    "pluralName": "user-contest-participations",
+    "displayName": "User Contest Participation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "participationStatus": {
+      "type": "enumeration",
+      "enum": ["joined", "submitted" , "in_progess" , "completed"],
+      "default": "joined"
+    },
+    "totalScore": {
+      "type": "integer",
+      "default": 0
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "endTime": {
+      "type": "datetime"
+    },
+    "submittedAt": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "participations"
+    },
+     "userAnswers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-answer.user-answer",
+      "mappedBy": "participation"
+    }
+  }
+}

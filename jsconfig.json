@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@strapi/*": ["node_modules/@strapi/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

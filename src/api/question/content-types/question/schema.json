@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "questionText": {
+      "type": "text",
+      "required": true
+    },
+    "questionType": {
+      "type": "enumeration",
+      "enum": ["single_select", "multi_select", "true_false"],
+      "required": true
+    },
+    "points": {
+      "type": "integer",
+      "default": 1
+    },
+    "options": {
+      "type": "json"
+    },
+    "correctAnswer": {
+      "type": "json",
+      "required": true
+
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "questions"
+    },
+    "userAnswers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-answer.user-answer",
+      "mappedBy": "question"
+    }
+  }
+}
