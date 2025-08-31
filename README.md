@@ -1,3 +1,16 @@
+# 🚀 Contest-System
+
+A Node.js/Strapi-based Contest Participation System designed to manage user roles (Admin, VIP, Signed-in, Guest), contests, questions, leaderboards, and prizes. This project is currently in development and serves as a proof-of-concept for a scalable API-driven application.
+
+## ✨ Features
+- **User Authentication and Role-Based Access**: Supports Admin, VIP, Signed-in, and Guest roles with JWT-based authentication.
+- **Contest Management**: Create, update, and delete contests with details like name, start/end times, and access levels (VIP or Normal).
+- **Question Management**: Add and retrieve questions (e.g., single-select) linked to contests.
+- **Leaderboard and Scoring**: Track user scores and display rankings based on correct answers.
+- **Participation Tracking**: Allow users to join contests and view their participation history.
+
+
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
